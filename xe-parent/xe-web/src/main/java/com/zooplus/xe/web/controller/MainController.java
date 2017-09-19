@@ -72,18 +72,25 @@ public class MainController {
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("main");
 		} else {
-			currencyLayerClient.convertCurrency(currencyQuery);
-			logger.info(currencyQuery.getEnterAmount() + " "
-					+ currencyQuery.getFromCurrency() + " = "
-					+ currencyQuery.getConvertedAmount() + " "
-					+ currencyQuery.getToCurrency());
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			User user = userService.findUserByEmail(auth.getName());
+			currencyLayerClient.convertCurrency(currencyQuery);
+			logger.info(new StringBuilder("CurrencyConverter [ ").append(user.getEmail())
+					.append(" ] : ").append(currencyQuery.getEnterAmount())
+					.append(" ").append(currencyQuery.getFromCurrency())
+					.append(" = ").append(currencyQuery.getConvertedAmount())
+					.append(" ").append(currencyQuery.getToCurrency())
+					.toString());
 			currencyQuery.setUser(user);
 			CurrencyQuery dbCurrencyQuery = currencyQueryService.saveCurrencyQuery(currencyQuery);
-			logger.info("Saved Currency Query For User: "+dbCurrencyQuery.getUser().getId());
+			logger.info(new StringBuilder("CurrencyConverter [ ")
+					.append(user.getEmail())
+					.append(" ] : Saved Currency Query with ID : ")
+					.append(dbCurrencyQuery.getId()).toString());
 			List<CurrencyQuery> topCurrencyQueries= currencyQueryService.find(auth.getName());
-			logger.info("Refresh Last Currency Queris For UserId : "+dbCurrencyQuery.getUser().getId());
+			logger.info(new StringBuilder("CurrencyConverter [ ")
+			.append(user.getEmail())
+			.append(" ] : Refresh Last Saved Currency Queris").toString());
 			modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName());
 			modelAndView.addObject("topCurrencyQueries", topCurrencyQueries);
 		}
