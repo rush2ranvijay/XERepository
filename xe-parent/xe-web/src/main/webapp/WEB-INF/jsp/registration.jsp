@@ -6,10 +6,8 @@
 <head>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <title>Registration Page</title>
-<link rel='stylesheet'
-	href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
-<c:url value="/css/main.css" var="jstlCss" />
-<link href="${jstlCss}" rel="stylesheet" />
+<link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link href="/css/main.css" rel="stylesheet" />
 </head>
 
 <body>
