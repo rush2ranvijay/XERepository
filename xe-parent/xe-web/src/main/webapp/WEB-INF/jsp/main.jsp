@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="#">${ userName }</a></li>
-				<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+				<li class="active"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -48,7 +49,7 @@
 					<td><c:out value="${currencyQuery.fromCurrency}" /></td>
 					<td><c:out value="${currencyQuery.toCurrency}" /></td>
 					<td><c:out value="${currencyQuery.convertedAmount}" /></td>
-					<td><c:out value="${currencyQuery.queryDate}" /></td>
+					<td><fmt:formatDate type="both" value="${currencyQuery.queryDate}" /></td>
 				</tr>
 			</c:forEach>
 			</tbody>
@@ -86,10 +87,10 @@
 </div>
 <div class="clr10"></div>
 <div class="panel panel-success">
-  <div class="panel-heading">CURRENCY CONVERSION RESUTL</div>
+  <div class="panel-heading">CURRENCY CONVERSION RESULT</div>
   	<div class="panel-body">
   		<c:if test="${not empty currencyQuery.enterAmount }">
-  			<div><c:out value="${currencyQuery.enterAmount}" /> <c:out value="${currencyQuery.fromCurrency}" /> = <c:out value="${currencyQuery.convertedAmount}" /> <c:out value="${currencyQuery.toCurrency}" /></div>
+  			<h3><c:out value="${currencyQuery.enterAmount}" /> <c:out value="${currencyQuery.fromCurrency}" /> = <c:out value="${currencyQuery.convertedAmount}" /> <c:out value="${currencyQuery.toCurrency}" /></h3>
   		</c:if>
   	</div>
 </div>
