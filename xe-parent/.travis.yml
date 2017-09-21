@@ -1,6 +1,0 @@
-language: java
-sudo: false # faster builds
-
-script: "mvn clean heroku:deploy-war -DskipTests=true -Dmaven.javadoc.skip=true"
-
-
