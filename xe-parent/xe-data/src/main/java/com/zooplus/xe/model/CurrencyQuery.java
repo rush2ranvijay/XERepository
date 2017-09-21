@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -33,6 +34,7 @@ public class CurrencyQuery {
 	private String toCurrency;
 	
 	@Column(name = "enter_amount")
+	@Min(value = 1, message = "The value must be greater than or equal to 1")
 	@NotNull(message = "*Please enter amount")
 	private Integer enterAmount;
 	

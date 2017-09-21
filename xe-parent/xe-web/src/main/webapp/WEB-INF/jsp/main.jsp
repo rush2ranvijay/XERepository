@@ -89,9 +89,9 @@
 <div class="panel panel-success">
   <div class="panel-heading">CURRENCY CONVERSION RESULT</div>
   	<div class="panel-body">
-  		<c:if test="${not empty currencyQuery.enterAmount }">
-  			<h3><c:out value="${currencyQuery.enterAmount}" /> <c:out value="${currencyQuery.fromCurrency}" /> = <c:out value="${currencyQuery.convertedAmount}" /> <c:out value="${currencyQuery.toCurrency}" /></h3>
-  		</c:if>
+	  		<c:if test="${not empty currencyQuery.enterAmount and currencyQuery.enterAmount ge 1}">
+	  			<h3><c:out value="${currencyQuery.enterAmount}" /> <c:out value="${currencyQuery.fromCurrency}" /> = <c:out value="${currencyQuery.convertedAmount}" /> <c:out value="${currencyQuery.toCurrency}" /></h3>
+	  		</c:if>
   	</div>
 </div>
 </div>
