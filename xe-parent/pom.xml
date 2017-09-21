@@ -18,9 +18,9 @@
 		<java.version>1.8</java.version>
   </properties>
    <modules>
-	<module>xe-data</module>
-	<module>xe-service</module>
     <module>xe-web</module>
+    <module>xe-service</module>
+	<module>xe-data</module>
   </modules>
   
   <dependencies>
@@ -31,21 +31,19 @@
     </dependency>
   </dependencies>
   
-   <build>
+   <!-- <build>
 		<plugins>
 			<plugin>
 		        <groupId>com.heroku.sdk</groupId>
 		        <artifactId>heroku-maven-plugin</artifactId>
 		        <version>1.2.0</version>
+		        <inherited>false</inherited>
 		        <configuration>
 		        	<appName>evening-island-90693</appName>
-					<warFile>../xe-parent/xe-web/target/xe-web.war</warFile>
-				 <!-- <processTypes>
-              		<web>java $JAVA_OPTS -war xe-web.war</web>
-          		</processTypes> -->
+					<warFile>xe-web/target/xe-web.war</warFile>
 				</configuration>
       		</plugin>		
 		</plugins>
-	</build>
+	</build> -->
  
 </project>
