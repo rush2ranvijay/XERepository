@@ -1,6 +1,8 @@
 language: java
 sudo: false # faster builds
 before_script: cd xe-parent
-script: "mvn heroku:deploy-war -DskipTests=true -Dmaven.javadoc.skip=true"
+script: 
+- mvn clean package -DskipTests=true -Dmaven.javadoc.skip=true
+- mvn heroku:deploy-war -DskipTests=true -Dmaven.javadoc.skip=true
 
 
