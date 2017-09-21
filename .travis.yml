@@ -2,9 +2,9 @@ language: java
 sudo: false # faster builds
 env:
 - HEROKU_API_KEY=af69c763-5ddc-4f2e-83ba-2ddce7b18b73
-before_script: cd xe-parent
+before_script: cd xe-parent/xe-web
 script: 
 - mvn clean package -DskipTests=true -Dmaven.javadoc.skip=true
-- mvn heroku:deploy-war -DskipTests=true -Dmaven.javadoc.skip=true -X
+- mvn heroku:deploy-war -DskipTests=true -Dmaven.javadoc.skip=true 
 
 
